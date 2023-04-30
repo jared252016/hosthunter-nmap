@@ -27,7 +27,7 @@ def parse_targets(file):
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-                        prog='nmap-all',
+                        prog='hh-nmap',
                         description='Read a txt file from hosthunter and run nmap on them.',
                         epilog='Author: Daniel Weisinger')
 
