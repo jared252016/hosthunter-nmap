@@ -37,7 +37,7 @@ python3 hh-nmap.py --ports 80,443,21-25 hosthunter-output.txt
 
 ## hh-nmap.py Help
 ```
-usage: nmap-all [-h] [-F] [-p] [-P PORTS] targets
+usage: hh-nmap.py [-h] [-F] [-p] [-P PORTS] targets
 
 Read a txt file from hosthunter and run nmap on them.
 
