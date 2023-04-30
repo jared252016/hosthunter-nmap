@@ -16,7 +16,6 @@ def run_nmap(ip, quick=True, ports=False):
 def parse_targets(file):
     with open(file, 'r') as f:
         content = f.read()
-        regex = r'(?m)Target: (.*)\n(:?.+(?:\r\n|[\r\n]))*'
         regex = re.compile(r'Target: (.*?)[^\S\r\n]*[\[\+\]]', re.DOTALL)
         targets = re.findall(regex, content)
         out = []
@@ -39,11 +38,13 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if args.all and args.quick:
+    if (args.all and args.quick) and args.ports == False:
         print("Multiple scan options set, defaulting to --all")
         args.quick = False
     
     if args.ports != False:
+        args.quick = False
+        args.all = False
         print("Scanning custom ports: " + args.ports)
 
     targets = parse_targets(args.targets)
